@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View</title>
+</head>
+<body>
+{% block content %}
+    <p><h2>{{post.Title}}</h2></p>
+    <p>{{post.Body}}</p>
+{% endblock content %}
+
+</body>
+</html>
