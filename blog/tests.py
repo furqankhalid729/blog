@@ -32,4 +32,19 @@ class blogtest(TestCase):
         response = self.client.get(reverse('home'))
         self.assertContains(response, 'A good title')
 
+    def test_post_create_view(self):  # new
+        response = self.client.post(reverse('createpost'), {
+            'Title': 'New title',
+            'Body': 'New text',
+            'Author': self.user,
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'New title')
+        self.assertContains(response, 'New text')
+
+    def test_delete(self):
+        resposne=self.client.get(reverse('deletePost',args='1'))
+        self.assertEqual(resposne.status_code,200)
+
+
 
